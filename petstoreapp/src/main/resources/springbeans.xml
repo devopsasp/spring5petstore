@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd"
+ >
+ 
+ <bean id="petStore" class="petstoreproject.petstoreapp.PetStore">
+     <property name="storeName" value="Happy Pet Store"/>
+     <property name="address" value="23 old baker street"/>
+     <property name="petList">
+     <list>
+       <ref bean="pet"/>
+       <ref bean="pet1"/>
+       <ref bean="pet2"/>
+     </list>
+      </property>
+      
+      <property name="daysOpened">
+      
+       <list>
+        <value>Monday</value>
+         <value>Tuesday</value>
+         <value>Saturday</value>
+       </list>
+      </property>
+      
+      
+      
+ </bean>
+ 
+ <bean id="petHelplineService" class="petstoreproject.petstoreapp.PetHelpLineService"  
+ factory-method="createPetHelpLineServiceInstance" />
+ 
+ 
+ 
+ 
+ <bean id="petService" class="petstoreproject.petstoreapp.PetService" autowire="byType" >
+    <constructor-arg  ref="petStore"/>
+  
+   
+   <property name="cityList">
+    <map>
+     <entry key="1" value="Delhi"/>
+     <entry key="2" value="Mumbar"/>
+     <entry key="3" value="Chennai"/>
+    </map>
+   </property>
+   
+<property name="rescueChampList">
+ <list>
+    <ref bean="champ1"/>
+    <ref bean="champ2"/>
+    <ref bean="champ3"/>
+ </list>
+</property>
+
+
+
+
+ </bean>
+ 
+ 
+ 
+ <bean id="pet" class="petstoreproject.petstoreapp.Pet">
+   <constructor-arg type="java.lang.String" value="Jacky"/>
+   <constructor-arg type="int" value="3"/>
+   <constructor-arg type="java.lang.String" value="Dog"/>  
+ </bean>
+ 
+ <bean id="pet1" class="petstoreproject.petstoreapp.Pet">
+   <constructor-arg type="java.lang.String" value="Boo"/>
+   <constructor-arg type="int" value="2"/>
+   <constructor-arg type="java.lang.String" value="Cat"/>  
+ </bean>
+ 
+ 
+  <bean id="pet2" class="petstoreproject.petstoreapp.Pet">
+   <constructor-arg type="java.lang.String" value="Squeaky"/>
+   <constructor-arg type="int" value="5"/>
+   <constructor-arg type="java.lang.String" value="Parrot"/>  
+ </bean>
+ 
+
+ 
+ <bean id="champ1" class="petstoreproject.petstoreapp.RescueChamp">
+  <property name="champName" value="Jacob Stains"/>
+  <property name="animalRescued" value="10"/>
+ </bean>
+ 
+ 
+  <bean id="champ2" class="petstoreproject.petstoreapp.RescueChamp">
+  <property name="champName" value="Helena Joe"/>
+  <property name="animalRescued" value="15"/>
+ </bean>
+ 
+ 
+  <bean id="champ3" class="petstoreproject.petstoreapp.RescueChamp">
+  <property name="champName" value="Marry Smith"/>
+  <property name="animalRescued" value="14"/>
+ </bean>
+
+
+
+
+ </beans>
+ 
+ 
+ 
+ 
+ 
