@@ -1,0 +1,41 @@
+Practice Case Study 
+
+ View the below classes and relationship between them 
+
+ 1. Create a spring mvc web application 
+ 2.Create a list of Products and Person 
+ 3.Perform crud operation by creating a RestController
+
+ public class Product
+  {
+  private int productId;
+  private String productName;
+  private float price;
+ //getter and setter methods and constructor 
+ }
+
+  public class Sales 
+  {
+   private int salesId;
+   private float amount;
+   private List<Product> productList;
+   private Person salesMan;
+  //getter and setter methods and constructor
+ }
+
+public class Person 
+ { 
+    private int personId;
+    private String personName;
+    private String emailId;
+    //getter and setter methods and constructor
+ } 
+
+
+
+
+
+
+
+
+
